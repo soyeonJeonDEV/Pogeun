@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="50dp"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:text="회원가입"
+            android:textSize="20dp" />
+
+        <EditText
+            android:id="@+id/signup_idEdit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="60dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:autofillHints="#808080"
+            android:background="#d3d3d3"
+            android:hint="ID"
+            android:padding="10dp" />
+
+        <EditText
+            android:id="@+id/signup_pwEdit"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="60dp"
+            android:layout_weight="1"
+            android:autofillHints="#808080"
+            android:background="#d3d3d3"
+            android:hint="PW"
+            android:padding="10dp" />
+
+        <Button
+            android:id="@+id/signupBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="100dp"
+            android:layout_marginRight="100dp"
+            android:layout_marginBottom="100dp"
+            android:layout_weight="1"
+            android:background="#fdc106"
+            android:text="회원가입"
+            android:textColor="@color/white"
+            android:textSize="15dp" />
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="10">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:paddingLeft="50dp"
+            android:gravity="center"
+            android:text="포근 회원이신가요?" />
+
+        <Button
+            android:id="@+id/loginPageBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_weight="1"
+            android:background="#00ff0000"
+            android:paddingRight="30dp"
+            android:text="로그인하러 가기" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

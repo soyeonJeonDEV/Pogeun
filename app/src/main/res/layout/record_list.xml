@@ -8,6 +8,7 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:fontFamily="@font/gowundodum"
         android:text="나의 포근이력"
         android:textSize="40dp"
         android:gravity="center"

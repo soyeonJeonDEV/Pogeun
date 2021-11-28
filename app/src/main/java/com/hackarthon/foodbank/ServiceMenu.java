@@ -4,11 +4,15 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.Guideline;
 
 public class ServiceMenu extends AppCompatActivity {
+    private long backKeyPressedTime = 0;
+
+    private Toast toast;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,19 +23,19 @@ public class ServiceMenu extends AppCompatActivity {
         Button recordBtn = (Button) findViewById(R.id.recordBtn);
         Button guideBtn = (Button) findViewById(R.id.guideBtn);
         Button communityBtn = (Button) findViewById(R.id.communityBtn);
-        Button loginPageBtn = (Button) findViewById(R.id.loginPageBtn);
+        Button statisticscheckBtn = (Button) findViewById(R.id.statisticscheckBtn);
 
         locationBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent locate = new Intent(getApplicationContext(),LocationSearchPage.class);
+                Intent locate = new Intent(getApplicationContext(), LocationSearchPage.class);
                 startActivity(locate);
             }
         });
         recordBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent recordPage = new Intent(getApplicationContext(),RecordPage.class);
+                Intent recordPage = new Intent(getApplicationContext(), RecordPage.class);
                 startActivity(recordPage);
             }
         });
@@ -49,13 +53,28 @@ public class ServiceMenu extends AppCompatActivity {
                 startActivity(communityPage);
             }
         });
-        loginPageBtn.setOnClickListener(new View.OnClickListener() {
+        statisticscheckBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent loginPage = new Intent(getApplicationContext(),Login.class);
-                startActivity(loginPage);
-                finish();
+                Intent intent = new Intent(getApplicationContext(), StatisticsCheckPage.class);
+                startActivity(intent);
             }
         });
+
+    }
+
+    @Override
+    public void onBackPressed() {
+
+        if (System.currentTimeMillis() > backKeyPressedTime + 2000) {
+            backKeyPressedTime = System.currentTimeMillis();
+            toast = Toast.makeText(this, "\'뒤로\' 버튼을 한번 더 누르시면 종료됩니다.", Toast.LENGTH_SHORT);
+            toast.show();
+            return;
+        }
+        if (System.currentTimeMillis() <= backKeyPressedTime + 2000) {
+            finish();
+            toast.cancel();
+        }
     }
 }

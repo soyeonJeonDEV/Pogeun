@@ -16,7 +16,9 @@
             android:layout_height="match_parent"
             android:gravity="center"
             android:text="포근 이용 가이드"
-            android:textSize="40dp" />
+            android:fontFamily="@font/gowundodum"
+            android:textSize="40dp"
+            android:autoSizeTextType="uniform"/>
 
     </LinearLayout>
 
@@ -32,10 +34,12 @@
             android:layout_height="match_parent"
             android:layout_weight="1"
             android:padding="30dp"
-            android:text="'포근은 일상에서 좀 더 편하게 푸드\n뱅크를 이용하기 위한 어플입니다.
+            android:autoSizeTextType="uniform"
+            android:text="포근은 일상에서 좀 더 편하게 푸드\n뱅크를 이용하기 위한 어플입니다.
         \n\n\n주변의 '푸드뱅크'를 찾아 이웃에게\n필요한 음식 및 물건을 기부해보아요.
         \n\n\n이웃이 선호하는 물품도 참고하면\n좋습니다.
         \n\n\n그럼 같이 시작해볼까요?"
+            android:fontFamily="@font/gowundodum"
             android:textSize="20dp" />
 
 

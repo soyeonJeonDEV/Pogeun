@@ -2,8 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_margin="20dp"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:context="Login">
 
 
     <LinearLayout
@@ -20,9 +22,10 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="로그인"
+            android:fontFamily="@font/gowundodum"
             android:textSize="20dp" />
 
-        <EditText
+        <AutoCompleteTextView
             android:id="@+id/idEdit"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
@@ -31,7 +34,11 @@
             android:layout_weight="1"
             android:autofillHints="#808080"
             android:background="#d3d3d3"
-            android:hint="ID"
+            android:hint="EMAIL"
+            android:inputType="text"
+            android:maxLines="1"
+            android:singleLine="true"
+            android:fontFamily="@font/gowundodum"
             android:padding="10dp" />
 
         <EditText
@@ -42,8 +49,12 @@
             android:layout_marginBottom="60dp"
             android:layout_weight="1"
             android:autofillHints="#808080"
+            android:fontFamily="@font/gowundodum"
             android:background="#d3d3d3"
             android:hint="PW"
+            android:inputType="textPassword"
+            android:maxLines="1"
+            android:singleLine="true"
             android:padding="10dp" />
 
         <Button
@@ -56,6 +67,7 @@
             android:layout_weight="1"
             android:background="#fdc106"
             android:text="로그인"
+            android:fontFamily="@font/gowundodum"
             android:textColor="@color/white"
             android:textSize="15dp" />
     </LinearLayout>
@@ -71,8 +83,8 @@
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
             android:layout_weight="1"
-
             android:gravity="center"
+            android:fontFamily="@font/gowundodum"
             android:text="아직 포근 회원이 아니신가요?" />
 
         <Button
@@ -81,10 +93,12 @@
             android:layout_height="match_parent"
             android:layout_marginTop="10dp"
             android:layout_marginBottom="10dp"
-            android:layout_weight="2"
+            android:layout_weight="1"
             android:background="#00ff0000"
             android:paddingRight="30dp"
-            android:text="회원가입 하기" />
+            android:fontFamily="@font/gowundodum"
+            android:text="회원가입 하기"
+            android:textStyle="bold"/>
 
     </LinearLayout>
 

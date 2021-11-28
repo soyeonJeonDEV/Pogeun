@@ -2,14 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:layout_margin="40dp">
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_margin="40dp"
-        android:layout_weight="1">
+
     <Button
         android:id="@+id/locationBtn"
         android:layout_width="match_parent"
@@ -19,6 +15,16 @@
         android:text="주변 푸드뱅크 위치 찾기"
         android:textColor="@color/black"
         android:background="@drawable/border_shape"/>
+
+        <Button
+            android:id="@+id/statisticscheckBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:text="지난 통계 확인하기"
+            android:textColor="@color/black"
+            android:background="@drawable/border_shape"/>
     <Button
         android:id="@+id/recordBtn"
         android:layout_width="match_parent"
@@ -48,22 +54,4 @@
         android:background="@drawable/border_shape"/>
     </LinearLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical"
-        android:layout_weight="6">
-        <Button
-            android:id="@+id/loginPageBtn"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="30dp"
-            android:text="로그인하러 가시겠습니까?"
-            android:textColor="#808080 "
-            android:background="#00ff0000"/>
 
-    </LinearLayout>
-
-
-
-</LinearLayout>

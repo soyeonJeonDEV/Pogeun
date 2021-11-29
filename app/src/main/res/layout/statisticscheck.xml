@@ -13,6 +13,13 @@
         android:textSize="40dp"
         android:gravity="center"
         android:layout_marginBottom="20dp"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:text="20.12 갱신"
+        android:paddingRight="10dp"
+        android:fontFamily="@font/gowundodum"/>
     <ListView
         android:id="@+id/statistics"
         android:layout_width="match_parent"

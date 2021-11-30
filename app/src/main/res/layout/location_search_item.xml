@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/shop_name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="안산시광림푸드뱅크"/>
+    <TextView
+        android:id="@+id/addr"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="경기도 안산시 단원구 예술1길 6"/>
+    <TextView
+        android:id="@+id/tel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="031-487-1377"/>
+
+</LinearLayout>

@@ -12,49 +12,19 @@
         android:textSize="40dp"
         android:fontFamily="@font/gowundodum"
         android:gravity="center"/>
-    <TextView
-        android:id="@+id/date"
-        android:fontFamily="@font/gowundodum"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:gravity="center"
-        android:textSize="20dp"/>
 
     <ListView
-        android:id="@+id/communityChatList"
+        android:id="@+id/communityList"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:layout_margin="16dp"
         android:divider="@android:color/transparent"
         android:dividerHeight="10.0sp"/>
-    <LinearLayout
+
+    <Button
+        android:id="@+id/regBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="#e2e2e2">
-
-        <EditText
-            android:id="@+id/communityChatSendText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="2dp"
-            android:layout_weight="1"
-            android:textSize="20dp"
-            android:hint="글쓰기"/>
-        <ImageView
-            android:id="@+id/communityChatSendBtn"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center_vertical"
-            android:layout_marginLeft="5dp"
-            android:layout_marginTop="1dp"
-            android:src="@android:drawable/ic_menu_send"
-            android:clickable="true"
-            android:maxHeight="48dp"
-            android:maxWidth="48dp"
-            android:adjustViewBounds="true"/>
-    </LinearLayout>
+        android:text="새글 작성하기"/>
 </LinearLayout>

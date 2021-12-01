@@ -2,20 +2,10 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:layout_margin="20dp">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mapLayout"
+    android:gravity="center"
+    android:orientation="vertical">
 
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:fontFamily="@font/gowundodum"
-        android:text="나의 포근이력"
-        android:textSize="40dp"
-        android:gravity="center"
-        android:layout_marginBottom="20dp"/>
-    <ListView
-        android:id="@+id/recordList"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"/>
 
 </LinearLayout>

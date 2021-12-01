@@ -45,8 +45,10 @@
         <activity android:name=".SignupPopuop"
             android:theme="@android:style/Theme.Dialog"/>
         <activity android:name=".StatisticsCheckPage"/>
-        <activity android:name=".LocationSearchDetail"
-            android:theme="@android:style/Theme.Dialog"/>
+        <activity android:name=".LocationSearch_"/>
+        <activity android:name=".RankingPage"/>
+        <activity android:name=".CommunityDetail"/>
+        <activity android:name=".CommunityRegister"/>
     </application>
 
 </manifest>

@@ -2,6 +2,7 @@ package com.hackarthon.foodbank;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.service.notification.NotificationListenerService;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -24,6 +25,7 @@ public class ServiceMenu extends AppCompatActivity {
         Button guideBtn = (Button) findViewById(R.id.guideBtn);
         Button communityBtn = (Button) findViewById(R.id.communityBtn);
         Button statisticscheckBtn = (Button) findViewById(R.id.statisticscheckBtn);
+        Button rankingBtn = (Button) findViewById(R.id.rankingBtn);
 
         locationBtn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -57,6 +59,14 @@ public class ServiceMenu extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getApplicationContext(), StatisticsCheckPage.class);
+                startActivity(intent);
+            }
+        });
+
+        rankingBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), RankingPage.class);
                 startActivity(intent);
             }
         });

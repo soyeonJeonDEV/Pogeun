@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="40dp">
+    android:layout_margin="40dp"
+    android:orientation="vertical">
 
 
     <Button
@@ -12,46 +12,65 @@
         android:layout_height="match_parent"
         android:layout_margin="20dp"
         android:layout_weight="1"
+        android:background="@drawable/border_shape"
         android:text="주변 푸드뱅크 위치 찾기"
-        android:textColor="@color/black"
-        android:background="@drawable/border_shape"/>
+        android:textColor="@color/black" />
 
-        <Button
-            android:id="@+id/statisticscheckBtn"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_margin="20dp"
-            android:layout_weight="1"
-            android:text="지난 통계 확인하기"
-            android:textColor="@color/black"
-            android:background="@drawable/border_shape"/>
+    <Button
+        android:id="@+id/statisticscheckBtn"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="20dp"
+        android:layout_weight="1"
+        android:background="@drawable/border_shape"
+        android:text="지난 통계 확인하기"
+        android:textColor="@color/black" />
+
     <Button
         android:id="@+id/recordBtn"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp"
         android:layout_weight="1"
+        android:background="@drawable/border_shape"
         android:text="나의 포근 이력 살펴보기"
-        android:textColor="@color/black"
-        android:background="@drawable/border_shape"/>
+        android:textColor="@color/black" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1">
+        <Button
+            android:id="@+id/rankingBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/border_shape"
+            android:text="기부자\n 랭킹"
+            android:textColor="@color/black" />
+        <Button
+            android:id="@+id/communityBtn"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_margin="20dp"
+            android:layout_weight="1"
+            android:background="@drawable/border_shape"
+            android:text="커뮤니티"
+            android:textColor="@color/black" />
+
+
+    </LinearLayout>
+
+
     <Button
         android:id="@+id/guideBtn"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_margin="20dp"
         android:layout_weight="1"
+        android:background="@drawable/border_shape"
         android:text="포근 이용 가이드"
-        android:textColor="@color/black"
-        android:background="@drawable/border_shape"/>
-    <Button
-        android:id="@+id/communityBtn"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="20dp"
-        android:layout_weight="1"
-        android:text="커뮤니티"
-        android:textColor="@color/black"
-        android:background="@drawable/border_shape"/>
-    </LinearLayout>
+        android:textColor="@color/black" />
+</LinearLayout>
 
 

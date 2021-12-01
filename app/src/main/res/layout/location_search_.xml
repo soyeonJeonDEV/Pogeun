@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:name="com.google.android.gms.maps.SupportMapFragment"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_margin="20dp"
+    android:gravity="center"
+    android:orientation="vertical">
+
+    <TextView
+        android:id="@+id/shop_name_"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="@font/gowundodum"
+        android:text="xx 푸드뱅크"
+        android:textStyle="bold"
+        android:textSize="30dp" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="2"
+            android:fontFamily="@font/gowundodum"
+            android:gravity="center"
+            android:text="전화번호"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/tel_"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/gowundodum"
+            android:gravity="center"
+            android:text="031-xxx-xxxx"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="2"
+            android:fontFamily="@font/gowundodum"
+            android:gravity="center"
+            android:text="주소"
+            android:textSize="20dp" />
+
+        <TextView
+            android:id="@+id/addr_"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/gowundodum"
+            android:gravity="center"
+            android:text="경기도 xxxx xxxxxx"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="2"
+            android:textStyle="bold"
+            android:fontFamily="@font/gowundodum"
+            android:gravity="center"
+            android:text="기부가 더 필요한 식품"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="20dp"
+            android:layout_weight="1"
+            android:fontFamily="@font/gowundodum"
+            android:gravity="center"
+            android:text="수산물, 신선식품세트류, 절임/발효식품"
+            android:textSize="20dp" />
+
+    </LinearLayout>
+
+    <fragment
+        android:id="@+id/map"
+        tools:context=".MapsActivity"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+
+</LinearLayout>

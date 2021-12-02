@@ -3,7 +3,6 @@ package com.hackarthon.foodbank;
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
 import android.widget.Button;
@@ -27,7 +26,7 @@ public class Signup extends Activity {
     private EditText signup_pwEdit;
     private Button signupBtn;
     private Button loginPageBtn;
-    private static String email, password;
+    private static String user_id, password;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -42,7 +41,7 @@ public class Signup extends Activity {
         signupBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                email = signup_idEdit.getText().toString();
+                user_id = signup_idEdit.getText().toString();
                 password = signup_pwEdit.getText().toString();
 
                 // 회원가입 절차 시작
@@ -79,9 +78,9 @@ public class Signup extends Activity {
                 };
 
                 // Volley 라이브러리를 이용해서 실제 서버와 통신을 구현하는 부분
-                RegisterRequest registerRequest = new RegisterRequest(email,password, responseListener);
+                SignupRequest signupRequest = new SignupRequest(user_id,password, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(Signup.this);
-                queue.add(registerRequest);
+                queue.add(signupRequest);
 
 
 

@@ -9,15 +9,15 @@ import java.util.Map;
 
 public class LoginRequest extends StringRequest {
 
-    final static private String URL = "http://192.168.0.43:3000/user/login"; // "http:// 퍼블릭 DSN 주소/Login.php";
+    final static private String URL = "http://ec2-15-164-177-241.ap-northeast-2.compute.amazonaws.com:3000/user/login"; // "http:// 퍼블릭 DSN 주소/Login.php";
     private Map<String, String> parameters;
 
-    public LoginRequest(String userEmail, String userPwd, Response.Listener<String> listener) {
+    public LoginRequest(String user_id, String password, Response.Listener<String> listener) {
         super(Method.POST, URL, listener, null);
 
         parameters = new HashMap<>();
-        parameters.put("userEmail", userEmail);
-        parameters.put("userPwd", userPwd);
+        parameters.put("user_id", user_id);
+        parameters.put("password", password);
     }
 
     @Override

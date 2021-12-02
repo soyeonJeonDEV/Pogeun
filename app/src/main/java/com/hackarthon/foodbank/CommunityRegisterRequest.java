@@ -10,7 +10,7 @@ import java.util.Map;
 public class CommunityRegisterRequest  extends StringRequest {
 
     // 서버 url 설정 (php 파일 연동)
-    final static private String URL = "http://192.168.0.5:3000/community/reg"; // "http:// 퍼블릭 DNS 주소/Register.php"
+    final static private String URL = "http://ec2-13-125-217-229.ap-northeast-2.compute.amazonaws.com:3000/community/reg"; // "http:// 퍼블릭 DNS 주소/Register.php"
     private Map<String, String> parameters;
 
 

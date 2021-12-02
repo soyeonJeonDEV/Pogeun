@@ -9,20 +9,20 @@
         android:id="@+id/shop_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="30dp"
+        android:textSize="20dp"
         android:textStyle="bold"
         android:text="안산시광림푸드뱅크"/>
     <TextView
         android:id="@+id/addr"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
+        android:textSize="10dp"
         android:text="경기도 안산시 단원구 예술1길 6"/>
     <TextView
         android:id="@+id/tel"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:textSize="20dp"
+        android:textSize="10dp"
         android:text="031-487-1377"
         android:layout_marginBottom="10dp"/>
 

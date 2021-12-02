@@ -92,7 +92,7 @@ public class CommunityPage extends AppCompatActivity {
         regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                items.clear();
+//                items.clear();
                 Intent intent = new Intent(CommunityPage.this, CommunityRegister.class);
                 startActivity(intent);
             }
@@ -102,7 +102,7 @@ public class CommunityPage extends AppCompatActivity {
     public void sendRequest() {
         // Request를 보낼 queue를 생성한다. 필요시엔 전역으로 생성해 사용하면 된다.
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://192.168.0.5:3000/community/list";//url
+        String url = "http://ec2-13-125-217-229.ap-northeast-2.compute.amazonaws.com:3000/community/list";//url
 
         // StringRequest를 보낸다.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,

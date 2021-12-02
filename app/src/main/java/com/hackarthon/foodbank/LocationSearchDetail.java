@@ -1,7 +1,6 @@
 package com.hackarthon.foodbank;
 
 import android.content.Intent;
-import android.location.Location;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.SpannableString;
@@ -10,7 +9,6 @@ import android.view.View;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.FragmentActivity;
 
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
@@ -18,13 +16,6 @@ import com.google.android.gms.maps.OnMapReadyCallback;
 import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
-import java.io.InputStream;
 
 public class LocationSearchDetail extends AppCompatActivity implements OnMapReadyCallback  {
 
@@ -36,7 +27,7 @@ public class LocationSearchDetail extends AppCompatActivity implements OnMapRead
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.location_search_);
+        setContentView(R.layout.location_search_detail);
 
 //        jsonParsing(getJsonString());
 

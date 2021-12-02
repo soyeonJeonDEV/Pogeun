@@ -16,6 +16,7 @@ public class LoginRequest extends StringRequest {
         super(Method.POST, URL, listener, null);
 
         parameters = new HashMap<>();
+        //parameters.put("db컬럼명", );
         parameters.put("user_id", user_id);
         parameters.put("password", password);
     }

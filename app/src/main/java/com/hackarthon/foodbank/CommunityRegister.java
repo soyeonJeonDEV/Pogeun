@@ -79,7 +79,7 @@ public class CommunityRegister extends AppCompatActivity {
                     public void onResponse(String response) {
                         try{
                             // String으로 그냥 못 보냄으로 JSON Object 형태로 변형하여 전송
-                            // 서버 통신하여 회원가입 성공 여부를 jsonResponse로 받음
+                            // 서버 통신하여 게시판 등록 성공 여부를 jsonResponse로 받음
                             JSONObject jsonResponse = new JSONObject(response);
 
                             int success = jsonResponse.getInt("code");
@@ -100,7 +100,7 @@ public class CommunityRegister extends AppCompatActivity {
                     }
                 };
 
-                // Volley 라이브러리를 이용해서 실제 서버와 통신을 구현하는 부분
+                // Volley 라이브러리를 이용해서 실제 서버와 통신을 구현하는 부분(CommunityRegisterRequest.java에서 통신 구현)
                 CommunityRegisterRequest communityRegisterRequest = new CommunityRegisterRequest(userid,content, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(CommunityRegister.this);
                 queue.add(communityRegisterRequest);

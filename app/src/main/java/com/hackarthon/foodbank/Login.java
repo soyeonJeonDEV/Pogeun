@@ -44,6 +44,7 @@ public class Login extends AppCompatActivity {
                 String user_id = mEmailView.getText().toString();
                 String password = mPasswordView.getText().toString();
 
+                //로그인 확인
                 Response.Listener<String> responseListener = new Response.Listener<String>() {
                     @Override
                     public void onResponse(String response) {
@@ -80,6 +81,7 @@ public class Login extends AppCompatActivity {
                     }
                 };
 
+                //LoginRequest.java 에서 url 연결
                 LoginRequest loginRequest = new LoginRequest(user_id, password, responseListener);
                 RequestQueue queue = Volley.newRequestQueue(Login.this);
                 queue.add(loginRequest);

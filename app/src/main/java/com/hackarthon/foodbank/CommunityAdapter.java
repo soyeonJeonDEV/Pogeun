@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class CommunityAdapter extends BaseAdapter {
 
-    TextView user_id, content;
+    TextView user_id, content, created_at;
     ArrayList<CommunityItem> items = new ArrayList<CommunityItem>();
     public CommunityAdapter(){};
 
@@ -44,11 +44,13 @@ public class CommunityAdapter extends BaseAdapter {
         }
         user_id = convertView.findViewById(R.id.user_id);
         content = convertView.findViewById(R.id.content);
+        created_at = convertView.findViewById(R.id.created_at);
 
         CommunityItem item = items.get(position);
 
         user_id.setText(item.getUser_id());
         content.setText(item.getContent());
+        created_at.setText(item.getCreated_at());
 
         return convertView;
     }

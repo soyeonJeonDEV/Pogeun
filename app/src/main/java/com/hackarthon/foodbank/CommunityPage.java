@@ -50,7 +50,7 @@ public class CommunityPage extends AppCompatActivity {
     // 사용할 컴포넌트 선언
     ListView listView;
     Button regBtn;
-    String user_id, content;
+    String user_id, content,created_at;
     int seq_id;
     CommunityAdapter adapter;
     private RequestQueue queue;
@@ -80,6 +80,7 @@ public class CommunityPage extends AppCompatActivity {
                 Intent intent = new Intent(CommunityPage.this, CommunityDetail.class);
                 intent.putExtra("userid",item.getUser_id());
                 intent.putExtra("seq_id",item.getSeq_id());
+                intent.putExtra("content",item.getContent());
                 startActivity(intent);
 
             }
@@ -100,7 +101,7 @@ public class CommunityPage extends AppCompatActivity {
     public void sendRequest() {
         // Request를 보낼 queue를 생성한다. 필요시엔 전역으로 생성해 사용하면 된다.
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://192.168.0.43:3000/community/list";
+        String url = "http://192.168.0.5:3000/community/list";//url
 
         // StringRequest를 보낸다.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -110,16 +111,18 @@ public class CommunityPage extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
 
-                            JSONArray movieArray = jsonObject.getJSONArray("result");
+                            //GET통신으로 받아옴
+                            JSONArray movieArray = jsonObject.getJSONArray("result"); // table 이름
 
                             for (int i = 0; i < movieArray.length(); i++) {
                                 JSONObject movieObject = movieArray.getJSONObject(i);
 
-                                user_id = movieObject.getString("user_id");
+                                user_id = movieObject.getString("user_id");//컬럼명
                                 content = movieObject.getString("text");
                                 seq_id = movieObject.getInt("community_id");
+                                created_at = movieObject.getString("create_dt");
 
-                                adapter.addItem(new CommunityItem(user_id,content,seq_id));
+                                adapter.addItem(new CommunityItem(user_id,content,seq_id,created_at));
                                 adapter.notifyDataSetChanged();
 
                             }

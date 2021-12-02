@@ -36,7 +36,7 @@ public class CommunityDetail extends AppCompatActivity {
     final private String TAG = getClass().getSimpleName();
 
     // 사용할 컴포넌트 선언
-    TextView title_tv, content_tv, date_tv;
+    TextView co_name, content_tv, co_date;
     LinearLayout comment_layout;
     EditText comment_et;
     Button reg_button;
@@ -45,7 +45,7 @@ public class CommunityDetail extends AppCompatActivity {
     int seq_id;
 
     // 유저아이디 변수
-    String userid;
+    String userid,content;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -55,17 +55,17 @@ public class CommunityDetail extends AppCompatActivity {
 // ListActivity 에서 넘긴 변수들을 받아줌
         seq_id = getIntent().getIntExtra("seq_id",0);
         userid = getIntent().getStringExtra("userid");
-
+        content = getIntent().getStringExtra("content");
 // 컴포넌트 초기화
-        title_tv = findViewById(R.id.title_tv);
+        co_name = findViewById(R.id.co_name);
         content_tv = findViewById(R.id.content_tv);
-        date_tv = findViewById(R.id.date_tv);
 
         comment_layout = findViewById(R.id.comment_layout);
         comment_et = findViewById(R.id.comment_et);
         reg_button = findViewById(R.id.reg_button);
 
-        content_tv.setText(userid +  seq_id);
+        co_name.setText(userid);
+        content_tv.setText(content);
 
 
 // 등록하기 버튼을 눌렀을 때 댓글 등록 함수 호출

@@ -10,21 +10,16 @@ import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.graphics.Movie;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
 import android.location.LocationManager;
 import android.os.Bundle;
-import android.os.Looper;
 import android.util.Log;
 import android.view.View;
-import android.view.WindowManager;
 import android.widget.AdapterView;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.android.volley.Request;
@@ -33,33 +28,12 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.StringRequest;
 import com.android.volley.toolbox.Volley;
-import com.google.android.gms.location.FusedLocationProviderClient;
-import com.google.android.gms.location.LocationCallback;
-import com.google.android.gms.location.LocationRequest;
-import com.google.android.gms.location.LocationResult;
-import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.location.LocationSettingsRequest;
-import com.google.android.gms.maps.CameraUpdate;
-import com.google.android.gms.maps.CameraUpdateFactory;
-import com.google.android.gms.maps.GoogleMap;
-import com.google.android.gms.maps.OnMapReadyCallback;
-import com.google.android.gms.maps.SupportMapFragment;
-import com.google.android.gms.maps.model.BitmapDescriptorFactory;
-import com.google.android.gms.maps.model.LatLng;
-import com.google.android.gms.maps.model.Marker;
-import com.google.android.gms.maps.model.MarkerOptions;
-import com.google.android.material.snackbar.Snackbar;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
-import noman.googleplaces.Place;
-import noman.googleplaces.PlacesException;
-import noman.googleplaces.PlacesListener;
-
 import java.io.IOException;
-import java.io.InputStream;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
@@ -123,7 +97,9 @@ public class LocationSearchPage extends AppCompatActivity {
                 extras.putString("shop_name", item.getShop_name());
                 extras.putString("addr", item.getAddr());
                 extras.putString("tel", item.getTel());
-                Intent pop = new Intent(getApplicationContext(), LocationSearch_.class);
+                extras.putDouble("lat",item.getLat());
+                extras.putDouble("lng", item.getLng());
+                Intent pop = new Intent(getApplicationContext(), LocationSearchDetail.class);
                 pop.putExtras(extras);
                 startActivity(pop);
             }
@@ -133,7 +109,7 @@ public class LocationSearchPage extends AppCompatActivity {
     public void sendRequest() {
         // Request를 보낼 queue를 생성한다. 필요시엔 전역으로 생성해 사용하면 된다.
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://192.168.0.43:3000/shop";
+        String url = "http://192.168.0.5:3000/shop";
 
         // StringRequest를 보낸다.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -163,7 +139,7 @@ public class LocationSearchPage extends AppCompatActivity {
 
                                 double distance = selected_location.distanceTo(near_locations) / 1000;
                                 if (distance <= 10) {
-                                    adapter.addItem(new LocationSearchItem(s, x, y));
+                                    adapter.addItem(new LocationSearchItem(s, x, y,lat,lng));
                                     adapter.notifyDataSetChanged();
                                 }
                             }

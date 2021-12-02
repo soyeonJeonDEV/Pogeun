@@ -45,15 +45,15 @@ public class Login extends AppCompatActivity {
                 String password = mPasswordView.getText().toString();
 
                 //로그인 확인
-                Response.Listener<String> responseListener = new Response.Listener<String>() {
-                    @Override
-                    public void onResponse(String response) {
-                        try {
-                            JSONObject jsonResponse = new JSONObject(response);
-                            int success = jsonResponse.getInt("code");
-                            if (success==200) {
-                                Toast.makeText(getApplicationContext(), "로그인에 성공했습니다.", Toast.LENGTH_SHORT).show();
-
+//                Response.Listener<String> responseListener = new Response.Listener<String>() {
+//                    @Override
+//                    public void onResponse(String response) {
+//                        try {
+//                            JSONObject jsonResponse = new JSONObject(response);
+//                            int success = jsonResponse.getInt("code");
+//                            if (success==200) {
+//                                Toast.makeText(getApplicationContext(), "로그인에 성공했습니다.", Toast.LENGTH_SHORT).show();
+//
                                 SharedPreferences.Editor editor = pref.edit();
                                 editor.putString("userid",user_id);
                                 editor.commit();
@@ -61,30 +61,30 @@ public class Login extends AppCompatActivity {
                                 Intent intent = new Intent(getApplicationContext(), ServiceMenu.class);
                                 startActivity(intent);
                                 finish();
-
-                            } else if (success == 10 ){
-                                Toast.makeText(getApplicationContext(), "아이디가 없습니다.", Toast.LENGTH_SHORT).show();
-                                return;
-                            } else if (success == 11 ){
-                                Toast.makeText(getApplicationContext(), "비밀번호가 다릅니다.", Toast.LENGTH_SHORT).show();
-                                return;
-                            } else{
-                                Toast.makeText(getApplicationContext(), "로그인에 실패했습니다.", Toast.LENGTH_SHORT).show();
-                                return;
-                            }
-                        } catch (Exception e) {
-                            e.printStackTrace();
-                            Toast.makeText(getApplicationContext(),
-                                    "Error: " + e.getMessage(),
-                                    Toast.LENGTH_LONG).show();
-                        }
-                    }
-                };
-
-                //LoginRequest.java 에서 url 연결
-                LoginRequest loginRequest = new LoginRequest(user_id, password, responseListener);
-                RequestQueue queue = Volley.newRequestQueue(Login.this);
-                queue.add(loginRequest);
+//
+//                            } else if (success == 10 ){
+//                                Toast.makeText(getApplicationContext(), "아이디가 없습니다.", Toast.LENGTH_SHORT).show();
+//                                return;
+//                            } else if (success == 11 ){
+//                                Toast.makeText(getApplicationContext(), "비밀번호가 다릅니다.", Toast.LENGTH_SHORT).show();
+//                                return;
+//                            } else{
+//                                Toast.makeText(getApplicationContext(), "로그인에 실패했습니다.", Toast.LENGTH_SHORT).show();
+//                                return;
+//                            }
+//                        } catch (Exception e) {
+//                            e.printStackTrace();
+//                            Toast.makeText(getApplicationContext(),
+//                                    "Error: " + e.getMessage(),
+//                                    Toast.LENGTH_LONG).show();
+//                        }
+//                    }
+//                };
+//
+//                //LoginRequest.java 에서 url 연결
+//                LoginRequest loginRequest = new LoginRequest(user_id, password, responseListener);
+//                RequestQueue queue = Volley.newRequestQueue(Login.this);
+//                queue.add(loginRequest);
             }
         });
 

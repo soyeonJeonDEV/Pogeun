@@ -16,7 +16,6 @@
         android:layout_marginRight="20dp"
         android:layout_marginBottom="80dp"
         android:gravity="right"
-        android:fontFamily="@font/gowundodum"
         android:text="당신의 기부로,\n배고픈 이웃들을\n포근하게 만들어주세요."
         android:lineSpacingExtra="5dp"
         android:textSize="18dp" />
@@ -39,7 +38,6 @@
         android:background="#00ff0000"
         android:text="시작하기"
         android:textColor="@color/black"
-        android:fontFamily="@font/gowundodum"
         android:textSize="20dp" />
 
 </LinearLayout>

@@ -52,6 +52,7 @@ public class CommunityPage extends AppCompatActivity {
     Button regBtn;
     String user_id, content,created_at;
     int seq_id;
+    ArrayList<CommunityItem> items;
     CommunityAdapter adapter;
     private RequestQueue queue;
 
@@ -91,7 +92,7 @@ public class CommunityPage extends AppCompatActivity {
         regBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
+                items.clear();
                 Intent intent = new Intent(CommunityPage.this, CommunityRegister.class);
                 startActivity(intent);
             }
@@ -120,9 +121,9 @@ public class CommunityPage extends AppCompatActivity {
                                 user_id = movieObject.getString("user_id");//컬럼명
                                 content = movieObject.getString("text");
                                 seq_id = movieObject.getInt("community_id");
-                                created_at = movieObject.getString("create_dt");
 
-                                adapter.addItem(new CommunityItem(user_id,content,seq_id,created_at));
+
+                                adapter.addItem(new CommunityItem(user_id,content,seq_id));
                                 adapter.notifyDataSetChanged();
 
                             }

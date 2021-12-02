@@ -7,7 +7,7 @@ public class LocationSearchItem {
     double lat;
     double lng;
 
-    public LocationSearchItem(String shop_name, String addr, String tel) {
+    public LocationSearchItem(String shop_name, String addr, String tel,Double lat, Double lng) {
         this.shop_name = shop_name;
         this.addr = addr;
         this.tel = tel;

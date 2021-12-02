@@ -18,7 +18,6 @@
             android:layout_weight="1"
             android:gravity="center"
             android:text="회원가입"
-            android:fontFamily="@font/gowundodum"
             android:textSize="20dp"/>
 
         <AutoCompleteTextView
@@ -34,7 +33,6 @@
             android:inputType="text"
             android:maxLines="1"
             android:singleLine="true"
-            android:fontFamily="@font/gowundodum"
             android:padding="10dp" />
 
         <EditText
@@ -50,7 +48,6 @@
             android:inputType="textPassword"
             android:maxLines="1"
             android:singleLine="true"
-            android:fontFamily="@font/gowundodum"
             android:padding="10dp" />
 
         <Button
@@ -63,7 +60,6 @@
             android:layout_weight="1"
             android:background="#fdc106"
             android:text="회원가입"
-            android:fontFamily="@font/gowundodum"
             android:textColor="@color/white"
             android:textSize="15dp" />
     </LinearLayout>
@@ -81,7 +77,6 @@
             android:layout_weight="1"
             android:paddingLeft="50dp"
             android:gravity="center"
-            android:fontFamily="@font/gowundodum"
             android:text="포근 회원이신가요?" />
 
         <Button
@@ -93,7 +88,6 @@
             android:layout_weight="1"
             android:background="#00ff0000"
             android:paddingRight="30dp"
-            android:fontFamily="@font/gowundodum"
             android:textStyle="bold"
             android:text="로그인하러 가기" />
 

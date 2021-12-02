@@ -7,20 +7,20 @@ import com.android.volley.toolbox.StringRequest;
 import java.util.HashMap;
 import java.util.Map;
 
-public class SignupRequest extends StringRequest {
+public class CommunityCommentRegister extends StringRequest {
 
     // 서버 url 설정 (php 파일 연동)
-    final static private String URL = "http://ec2-15-164-177-241.ap-northeast-2.compute.amazonaws.com:3000/user/create"; // "http:// 퍼블릭 DNS 주소/Register.php"
+    final static private String URL = "http://192.168.0.5:3000/community/comment"; // "http:// 퍼블릭 DNS 주소/Register.php"
     private Map<String, String> parameters;
 
 
-    public SignupRequest(String user_id, String password, Response.Listener<String> listener){
+    public CommunityCommentRegister(String community_id, String userid, String content, Response.Listener<String> listener){
         super(Method.POST, URL, listener, null);
 
         parameters = new HashMap<>();
-        //parameter.put("db_컬럼명",);
-        parameters.put("user_id", user_id);
-        parameters.put("password", password);
+        parameters.put("community_id", community_id);
+        parameters.put("user_id", userid);
+        parameters.put("comm", content);
 
     }
 

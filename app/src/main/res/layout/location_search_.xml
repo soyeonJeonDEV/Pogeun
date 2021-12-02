@@ -13,7 +13,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="15dp"
-        android:fontFamily="@font/gowundodum"
         android:text="xx 푸드뱅크"
         android:textStyle="bold"
         android:textSize="30dp" />
@@ -27,7 +26,6 @@
             android:layout_height="match_parent"
             android:layout_marginBottom="20dp"
             android:layout_weight="2"
-            android:fontFamily="@font/gowundodum"
             android:gravity="center"
             android:text="전화번호"
             android:textSize="20dp" />
@@ -38,7 +36,6 @@
             android:layout_height="match_parent"
             android:layout_marginBottom="20dp"
             android:layout_weight="1"
-            android:fontFamily="@font/gowundodum"
             android:gravity="center"
             android:text="031-xxx-xxxx"
             android:textSize="20dp" />
@@ -54,7 +51,6 @@
             android:layout_height="match_parent"
             android:layout_marginBottom="20dp"
             android:layout_weight="2"
-            android:fontFamily="@font/gowundodum"
             android:gravity="center"
             android:text="주소"
             android:textSize="20dp" />
@@ -65,7 +61,6 @@
             android:layout_height="match_parent"
             android:layout_marginBottom="20dp"
             android:layout_weight="1"
-            android:fontFamily="@font/gowundodum"
             android:gravity="center"
             android:text="경기도 xxxx xxxxxx"
             android:textSize="20dp" />
@@ -83,7 +78,6 @@
             android:layout_marginBottom="20dp"
             android:layout_weight="2"
             android:textStyle="bold"
-            android:fontFamily="@font/gowundodum"
             android:gravity="center"
             android:text="기부가 더 필요한 식품"
             android:textSize="20dp" />
@@ -93,7 +87,6 @@
             android:layout_height="match_parent"
             android:layout_marginBottom="20dp"
             android:layout_weight="1"
-            android:fontFamily="@font/gowundodum"
             android:gravity="center"
             android:text="수산물, 신선식품세트류, 절임/발효식품"
             android:textSize="20dp" />

@@ -26,7 +26,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class LocationSearch_ extends AppCompatActivity implements OnMapReadyCallback  {
+public class LocationSearchDetail extends AppCompatActivity implements OnMapReadyCallback  {
 
     // 구글 맵 참조변수 생성
     GoogleMap mMap;
@@ -38,7 +38,7 @@ public class LocationSearch_ extends AppCompatActivity implements OnMapReadyCall
         super.onCreate(savedInstanceState);
         setContentView(R.layout.location_search_);
 
-        jsonParsing(getJsonString());
+//        jsonParsing(getJsonString());
 
         // SupportMapFragment을 통해 레이아웃에 만든 fragment의 ID를 참조하고 구글맵을 호출한다.
         SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.map);
@@ -53,8 +53,9 @@ public class LocationSearch_ extends AppCompatActivity implements OnMapReadyCall
         shop_name_.setText(getIntent().getStringExtra("shop_name"));
         tel_.setText(getIntent().getStringExtra("tel"));
         addr_.setText(getIntent().getStringExtra("addr"));
-
         shop = getIntent().getStringExtra("shop_name");
+        lat = getIntent().getDoubleExtra("lat",0);
+        lng = getIntent().getDoubleExtra("lng",0);
 
         SpannableString content = new SpannableString(getIntent().getStringExtra("tel"));
         content.setSpan(new UnderlineSpan(), 0, getIntent().getStringExtra("tel").length(), 0);
@@ -98,46 +99,46 @@ public class LocationSearch_ extends AppCompatActivity implements OnMapReadyCall
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(seoul, 15));
     }
 
-    private String getJsonString()
-    {
-        String json = "";
-
-        try {
-            InputStream is = getAssets().open("test.json");
-            int fileSize = is.available();
-
-            byte[] buffer = new byte[fileSize];
-            is.read(buffer);
-            is.close();
-
-            json = new String(buffer, "UTF-8");
-        }
-        catch (IOException ex)
-        {
-            ex.printStackTrace();
-        }
-
-        return json;
-    }
-
-    private void jsonParsing(String json)
-    {
-
-        try{
-            JSONObject jsonObject = new JSONObject(json);
-
-            JSONArray movieArray = jsonObject.getJSONArray("shop");
-
-            for(int i=0; i<movieArray.length(); i++)
-            {
-                JSONObject movieObject = movieArray.getJSONObject(i);
-
-                 lat = movieObject.getDouble("lat");
-                 lng = movieObject.getDouble("lng");
-
-            }
-        }catch (JSONException e) {
-            e.printStackTrace();
-        }
-    }
+//    private String getJsonString()
+//    {
+//        String json = "";
+//
+//        try {
+//            InputStream is = getAssets().open("test.json");
+//            int fileSize = is.available();
+//
+//            byte[] buffer = new byte[fileSize];
+//            is.read(buffer);
+//            is.close();
+//
+//            json = new String(buffer, "UTF-8");
+//        }
+//        catch (IOException ex)
+//        {
+//            ex.printStackTrace();
+//        }
+//
+//        return json;
+//    }
+//
+//    private void jsonParsing(String json)
+//    {
+//
+//        try{
+//            JSONObject jsonObject = new JSONObject(json);
+//
+//            JSONArray movieArray = jsonObject.getJSONArray("shop");
+//
+//            for(int i=0; i<movieArray.length(); i++)
+//            {
+//                JSONObject movieObject = movieArray.getJSONObject(i);
+//
+//                 lat = movieObject.getDouble("lat");
+//                 lng = movieObject.getDouble("lng");
+//
+//            }
+//        }catch (JSONException e) {
+//            e.printStackTrace();
+//        }
+ //   }
 }

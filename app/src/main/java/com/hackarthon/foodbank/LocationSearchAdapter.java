@@ -53,8 +53,8 @@ public class LocationSearchAdapter extends BaseAdapter {
         LocationSearchItem item = items.get(position);
 
         shop_name.setText(item.getShop_name());
-        addr.setText(item.getAddr());
-        tel.setText(item.getTel());
+        addr.setText("주소 : " + item.getAddr());
+        tel.setText("번호 : " + item.getTel());
 
 
 

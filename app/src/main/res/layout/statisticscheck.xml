@@ -9,7 +9,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="지난 통계 확인하기"
-        android:fontFamily="@font/gowundodum"
         android:textSize="40dp"
         android:gravity="center"
         android:layout_marginBottom="20dp"/>
@@ -31,8 +30,7 @@
             android:layout_height="wrap_content"
             android:gravity="right"
             android:text="2020년 데이터 기준"
-            android:paddingRight="10dp"
-            android:fontFamily="@font/gowundodum"/>
+            android:paddingRight="10dp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -258,8 +256,7 @@
             android:layout_height="wrap_content"
             android:gravity="right"
             android:text="2020년 12월 데이터 기준"
-            android:paddingRight="10dp"
-            android:fontFamily="@font/gowundodum"/>
+            android:paddingRight="10dp" />
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"

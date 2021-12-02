@@ -27,6 +27,12 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.StringRequest;
+import com.android.volley.toolbox.Volley;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationCallback;
 import com.google.android.gms.location.LocationRequest;
@@ -65,14 +71,14 @@ public class LocationSearchPage extends AppCompatActivity {
 
     private static final int GPS_ENABLE_REQUEST_CODE = 2001;
     private static final int PERMISSIONS_REQUEST_CODE = 100;
-    String[] REQUIRED_PERMISSIONS  = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
+    String[] REQUIRED_PERMISSIONS = {Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION};
 
     Button search_btn;
     ListView locationList;
     ArrayList<LocationSearchItem> items;
     LocationSearchAdapter adapter;
-     double latitude;
-     double longitude;
+    double latitude;
+    double longitude;
 
 
     @Override
@@ -83,7 +89,7 @@ public class LocationSearchPage extends AppCompatActivity {
         if (!checkLocationServicesStatus()) {
 
             showDialogForLocationServiceSetting();
-        }else {
+        } else {
 
             checkRunTimePermission();
         }
@@ -91,6 +97,7 @@ public class LocationSearchPage extends AppCompatActivity {
         locationList = (ListView) findViewById(R.id.locationList);
 
         search_btn = (Button) findViewById(R.id.search_btn);
+
 
         search_btn.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -102,7 +109,7 @@ public class LocationSearchPage extends AppCompatActivity {
                 longitude = gpsTracker.getLongitude();
 
                 adapter = new LocationSearchAdapter();
-                jsonParsing(getJsonString());
+                sendRequest();
                 locationList.setAdapter(adapter);
 
             }
@@ -113,9 +120,9 @@ public class LocationSearchPage extends AppCompatActivity {
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 LocationSearchItem item = (LocationSearchItem) parent.getItemAtPosition(position);
                 Bundle extras = new Bundle();
-                extras.putString("shop_name",item.getShop_name());
-                extras.putString("addr",item.getAddr());
-                extras.putString("tel",item.getTel());
+                extras.putString("shop_name", item.getShop_name());
+                extras.putString("addr", item.getAddr());
+                extras.putString("tel", item.getTel());
                 Intent pop = new Intent(getApplicationContext(), LocationSearch_.class);
                 pop.putExtras(extras);
                 startActivity(pop);
@@ -123,63 +130,58 @@ public class LocationSearchPage extends AppCompatActivity {
         });
     }
 
-    private String getJsonString()
-    {
-        String json = "";
+    public void sendRequest() {
+        // Request를 보낼 queue를 생성한다. 필요시엔 전역으로 생성해 사용하면 된다.
+        RequestQueue queue = Volley.newRequestQueue(this);
+        String url = "http://192.168.0.43:3000/shop";
 
-        try {
-            InputStream is = getAssets().open("test.json");
-            int fileSize = is.available();
+        // StringRequest를 보낸다.
+        StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
+                new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonObject = new JSONObject(response);
 
-            byte[] buffer = new byte[fileSize];
-            is.read(buffer);
-            is.close();
+                            JSONArray movieArray = jsonObject.getJSONArray("shop");
 
-            json = new String(buffer, "UTF-8");
-        }
-        catch (IOException ex)
-        {
-            ex.printStackTrace();
-        }
+                            for (int i = 0; i < movieArray.length(); i++) {
+                                JSONObject movieObject = movieArray.getJSONObject(i);
 
-        return json;
-    }
+                                String s = movieObject.getString("name");
+                                String x = movieObject.getString("addr");
+                                String y = movieObject.getString("tel");
+                                double lat = movieObject.getDouble("y");
+                                double lng = movieObject.getDouble("x");
 
-    private void jsonParsing(String json)
-    {
+                                Location selected_location = new Location("locationA");
+                                selected_location.setLatitude(latitude);
+                                selected_location.setLongitude(longitude);
+                                Location near_locations = new Location("locationB");
+                                near_locations.setLatitude(lat);
+                                near_locations.setLongitude(lng);
 
-        try{
-            JSONObject jsonObject = new JSONObject(json);
+                                double distance = selected_location.distanceTo(near_locations) / 1000;
+                                if (distance <= 10) {
+                                    adapter.addItem(new LocationSearchItem(s, x, y));
+                                    adapter.notifyDataSetChanged();
+                                }
+                            }
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
 
-            JSONArray movieArray = jsonObject.getJSONArray("shop");
-
-            for(int i=0; i<movieArray.length(); i++)
-            {
-                JSONObject movieObject = movieArray.getJSONObject(i);
-
-                String s = movieObject.getString("name");
-                String x = movieObject.getString("addr");
-                String y =movieObject.getString("tel");
-                double lat = movieObject.getDouble("lat");
-                double lng = movieObject.getDouble("lng");
-
-                Location selected_location = new Location("locationA");
-                selected_location.setLatitude(latitude);
-                selected_location.setLongitude(longitude);
-                Location near_locations = new Location("locationB");
-                near_locations.setLatitude(lat);
-                near_locations.setLongitude(lng);
-
-                double distance = selected_location.distanceTo(near_locations)/1000;
-                if (distance <= 10){
-                    adapter.addItem(new LocationSearchItem(s,x,y));
-                    adapter.notifyDataSetChanged();
-                }
+                    }
+                }, new Response.ErrorListener() {
+            @Override
+            public void onErrorResponse(VolleyError error) {
+                search_btn.setText("That didn't work!");
             }
-        }catch (JSONException e) {
-            e.printStackTrace();
-        }
+        });
+        // RequestQueue에 현재 Task를 추가해준다.
+        queue.add(stringRequest);
     }
+
     public void onRequestPermissionsResult(int permsRequestCode,
                                            @NonNull String[] permissions,
                                            @NonNull int[] grandResults) {
@@ -226,7 +228,7 @@ public class LocationSearchPage extends AppCompatActivity {
         }
     }
 
-    void checkRunTimePermission(){
+    void checkRunTimePermission() {
 
         //런타임 퍼미션 처리
         // 1. 위치 퍼미션을 가지고 있는지 체크합니다.
@@ -244,7 +246,6 @@ public class LocationSearchPage extends AppCompatActivity {
 
 
             // 3.  위치 값을 가져올 수 있음
-
 
 
         } else {  //2. 퍼미션 요청을 허용한 적이 없다면 퍼미션 요청이 필요합니다. 2가지 경우(3-1, 4-1)가 있습니다.
@@ -271,7 +272,7 @@ public class LocationSearchPage extends AppCompatActivity {
     }
 
 
-    public String getCurrentAddress( double latitude, double longitude) {
+    public String getCurrentAddress(double latitude, double longitude) {
 
         //지오코더... GPS를 주소로 변환
         Geocoder geocoder = new Geocoder(this, Locale.getDefault());
@@ -295,7 +296,6 @@ public class LocationSearchPage extends AppCompatActivity {
         }
 
 
-
         if (addresses == null || addresses.size() == 0) {
             Toast.makeText(this, "주소 미발견", Toast.LENGTH_LONG).show();
             return "주소 미발견";
@@ -303,7 +303,7 @@ public class LocationSearchPage extends AppCompatActivity {
         }
 
         Address address = addresses.get(0);
-        return address.getAddressLine(0).toString()+"\n";
+        return address.getAddressLine(0).toString() + "\n";
 
     }
 

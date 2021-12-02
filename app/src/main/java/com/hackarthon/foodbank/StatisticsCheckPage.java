@@ -12,7 +12,6 @@ public class StatisticsCheckPage extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.statisticscheck);
 
-        ListView recordList = (ListView) findViewById(R.id.statistics) ;
 
     }
 }

@@ -1,6 +1,7 @@
 package com.hackarthon.foodbank;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.AutoCompleteTextView;
@@ -35,43 +36,53 @@ public class Login extends AppCompatActivity {
         loginBtn = (Button) findViewById(R.id.loginBtn);
         singupPageBtn = (Button) findViewById(R.id.singupPageBtn);
 
+        SharedPreferences pref = getSharedPreferences("id",MODE_PRIVATE);
+
         loginBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 String userEmail = mEmailView.getText().toString();
                 String userPwd = mPasswordView.getText().toString();
 
-//                Response.Listener<String> responseListener = new Response.Listener<String>() {
-//                    @Override
-//                    public void onResponse(String response) {
-//                        try {
-//                            JSONObject jsonResponse = new JSONObject(response);
-//                            int success = jsonResponse.getInt("code");
-//                            if (success==200) {
-//                                Toast.makeText(getApplicationContext(), "로그인에 성공했습니다.", Toast.LENGTH_SHORT).show();
-//
-//                                String userEmail = jsonResponse.getString("userEmail");
-//                                String userPwd = jsonResponse.getString("userPwd");
+                Response.Listener<String> responseListener = new Response.Listener<String>() {
+                    @Override
+                    public void onResponse(String response) {
+                        try {
+                            JSONObject jsonResponse = new JSONObject(response);
+                            int success = jsonResponse.getInt("code");
+                            if (success==200) {
+                                Toast.makeText(getApplicationContext(), "로그인에 성공했습니다.", Toast.LENGTH_SHORT).show();
+
+                                SharedPreferences.Editor editor = pref.edit();
+                                editor.putString("userid",userEmail);
+                                editor.commit();
+
                                 Intent intent = new Intent(getApplicationContext(), ServiceMenu.class);
-//                                // 로그인 하면서 사용자 정보 넘기기
-//                                intent.putExtra("userEmail", userEmail);
-//                                intent.putExtra("userPwd", userPwd);
                                 startActivity(intent);
                                 finish();
-//
-//                            } else {
-//                                Toast.makeText(getApplicationContext(), "로그인에 실패했습니다.", Toast.LENGTH_SHORT).show();
-//                                return;
-//                            }
-//                        } catch (Exception e) {
-//                            e.printStackTrace();
-//                        }
-//                    }
-//                };
-//
-//                LoginRequest loginRequest = new LoginRequest(userEmail, userPwd, responseListener);
-//                RequestQueue queue = Volley.newRequestQueue(Login.this);
-//                queue.add(loginRequest);
+
+                            } else if (success == 10 ){
+                                Toast.makeText(getApplicationContext(), "아이디가 없습니다.", Toast.LENGTH_SHORT).show();
+                                return;
+                            } else if (success == 11 ){
+                                Toast.makeText(getApplicationContext(), "비밀번호가 다릅니다.", Toast.LENGTH_SHORT).show();
+                                return;
+                            } else{
+                                Toast.makeText(getApplicationContext(), "로그인에 실패했습니다.", Toast.LENGTH_SHORT).show();
+                                return;
+                            }
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                            Toast.makeText(getApplicationContext(),
+                                    "Error: " + e.getMessage(),
+                                    Toast.LENGTH_LONG).show();
+                        }
+                    }
+                };
+
+                LoginRequest loginRequest = new LoginRequest(userEmail, userPwd, responseListener);
+                RequestQueue queue = Volley.newRequestQueue(Login.this);
+                queue.add(loginRequest);
             }
         });
 
@@ -84,11 +95,11 @@ public class Login extends AppCompatActivity {
             }
         });
     }
-
-    @Override
-    public void onBackPressed() {
-
-    }
+//
+//    @Override
+//    public void onBackPressed() {
+//
+//    }
 
 
 }

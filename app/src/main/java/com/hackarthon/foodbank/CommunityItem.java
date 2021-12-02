@@ -2,28 +2,39 @@ package com.hackarthon.foodbank;
 
 public class CommunityItem {
 
-    String userId;
+    String user_id;
     String content;
+    int seq_id;
 
 
-    public CommunityItem(String userId, String content) {
-        this.userId = userId;
+    public CommunityItem(String userId, String content, int seq_id) {
+        this.user_id = userId;
         this.content = content;
+        this.seq_id = seq_id;
+
     }
 
-    public String getUserId() {
-        return userId;
+    public String getUser_id() {
+        return user_id;
     }
 
     public String getContent() {
         return content;
     }
 
-    public void setUserId(String userId) {
-        this.userId = userId;
+    public int getSeq_id() {
+        return seq_id;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
     }
 
     public void setContent(String content) {
         this.content = content;
+    }
+
+    public void setSeq_id(int seq_id) {
+        this.seq_id = seq_id;
     }
 }

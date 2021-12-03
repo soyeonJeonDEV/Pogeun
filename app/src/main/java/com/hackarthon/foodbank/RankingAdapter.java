@@ -49,9 +49,9 @@ public class RankingAdapter extends BaseAdapter {
 
         RankingItem item = items.get(position);
 
-        rank.setText(item.getRank());
-        r_name.setText(item.getR_name());
-        r_donation.setText(item.getR_donation());
+        rank.setText(String.valueOf(item.getRank()) + "위.  ");
+        r_name.setText(item.getR_name() + "님  ");
+        r_donation.setText(item.getR_donation() + "원");
 
         return convertView;
     }

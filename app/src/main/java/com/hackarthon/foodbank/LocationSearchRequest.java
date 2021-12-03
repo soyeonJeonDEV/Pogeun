@@ -14,12 +14,13 @@ public class LocationSearchRequest extends StringRequest {
     private Map<String, String> parameters;
 
 
-    public LocationSearchRequest(String x, String y, Response.Listener<String> listener){
+    public LocationSearchRequest(String lng, String lat, Response.Listener<String> listener){
         super(Method.POST, URL, listener, null);
 
         parameters = new HashMap<>();
-        parameters.put("x", x);
-        parameters.put("y", y);
+        parameters.put("x", lng);
+        parameters.put("y", lat);
+
 
     }
 

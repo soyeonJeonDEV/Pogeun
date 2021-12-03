@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.text.SpannableString;
+import android.text.TextUtils;
 import android.text.style.UnderlineSpan;
 import android.view.View;
 import android.widget.TextView;
@@ -17,14 +18,13 @@ import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
-public class LocationSearchDetail extends AppCompatActivity implements OnMapReadyCallback  {
+public class LocationSearchDetail extends AppCompatActivity implements OnMapReadyCallback {
 
     // 구글 맵 참조변수 생성
     GoogleMap mMap;
     TextView shop_name_, tel_, addr_, article;
     double lat, lng;
     String shop;
-    String do_article;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,9 +47,15 @@ public class LocationSearchDetail extends AppCompatActivity implements OnMapRead
         tel_.setText(getIntent().getStringExtra("tel"));
         addr_.setText(getIntent().getStringExtra("addr"));
         shop = getIntent().getStringExtra("shop_name");
-        lat = getIntent().getDoubleExtra("lat",0);
-        lng = getIntent().getDoubleExtra("lng",0);
-        article.setText(getIntent().getStringExtra("article"));
+        lat = getIntent().getDoubleExtra("lat", 0);
+        lng = getIntent().getDoubleExtra("lng", 0);
+        String art = getIntent().getStringExtra("article");
+        if(art != null){
+            article.setText(getIntent().getStringExtra("article"));
+        }else{
+            article.setText("없음");
+        }
+
 
 
         SpannableString content = new SpannableString(getIntent().getStringExtra("tel"));
@@ -90,7 +96,7 @@ public class LocationSearchDetail extends AppCompatActivity implements OnMapRead
         mMap.addMarker(makerOptions);
 
         //카메라를 여의도 위치로 옮긴다.
-     //   mMap.moveCamera(CameraUpdateFactory.newLatLng(seoul));
+        //   mMap.moveCamera(CameraUpdateFactory.newLatLng(seoul));
         mMap.moveCamera(CameraUpdateFactory.newLatLngZoom(seoul, 15));
     }
 
@@ -135,5 +141,5 @@ public class LocationSearchDetail extends AppCompatActivity implements OnMapRead
 //        }catch (JSONException e) {
 //            e.printStackTrace();
 //        }
- //   }
+    //   }
 }

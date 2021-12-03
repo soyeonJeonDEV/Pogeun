@@ -5,6 +5,7 @@ import android.location.Location;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ListView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -21,19 +22,21 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 public class RankingPage extends AppCompatActivity {
-    TextView r1_name, r1_donation, r2_name, r2_donation;
+    ListView listView;
+    RankingAdapter adapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.ranking);
 
-        r1_name = findViewById(R.id.r1_name);
-        r1_donation = findViewById(R.id.r1_donation);
-        r2_name = findViewById(R.id.r2_name);
-        r2_donation = findViewById(R.id.r2_donation);
-
+        listView = findViewById(R.id.rankList);
         sendRequest();
+        
+        adapter = new RankingAdapter();
+        listView.setAdapter(adapter);
+
+
 
     }
     public void sendRequest() {
@@ -58,13 +61,8 @@ public class RankingPage extends AppCompatActivity {
                                 String name = movieObject.getString("user_id");
                                 String donation = movieObject.getString("donate_sum");
 
-                                if(rank == 1){
-                                    r1_name .setText(name);
-                                    r1_donation .setText(donation + "원");
-                                }else if (rank == 2){
-                                    r2_name.setText(name);
-                                    r2_donation.setText(donation + "원");
-                                }
+                                adapter.addItem(new RankingItem(rank, name, donation));
+                                adapter.notifyDataSetChanged();
 
 
                             }

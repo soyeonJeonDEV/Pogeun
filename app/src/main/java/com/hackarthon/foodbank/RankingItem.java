@@ -1,16 +1,16 @@
 package com.hackarthon.foodbank;
 
 public class RankingItem {
-    String rank;
+    int rank;
     String r_name;
     String r_donation;
-    public RankingItem(String rank, String r_name, String r_donation){
+    public RankingItem(int rank, String r_name, String r_donation){
         this.rank = rank;
         this.r_name = r_name;
         this.r_donation = r_donation;
     }
 
-    public String getRank() {
+    public int getRank() {
         return rank;
     }
 
@@ -22,7 +22,7 @@ public class RankingItem {
         return r_donation;
     }
 
-    public void setRank(String rank) {
+    public void setRank(int rank) {
         this.rank = rank;
     }
 

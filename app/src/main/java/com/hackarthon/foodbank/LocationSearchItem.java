@@ -6,13 +6,15 @@ public class LocationSearchItem {
     String tel;
     double lat;
     double lng;
+    String article;
 
-    public LocationSearchItem(String shop_name, String addr, String tel,Double lat, Double lng) {
+    public LocationSearchItem(String shop_name, String addr, String tel,Double lat, Double lng, String article) {
         this.shop_name = shop_name;
         this.addr = addr;
         this.tel = tel;
         this.lat = lat;
         this.lng = lng;
+        this.article = article;
     }
 
     public String getShop_name() {
@@ -33,6 +35,10 @@ public class LocationSearchItem {
 
     public double getLng() {
         return lng;
+    }
+
+    public String getArticle() {
+        return article;
     }
 
     public void setShop_name(String shop_name) {

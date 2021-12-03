@@ -99,6 +99,7 @@ public class LocationSearchPage extends AppCompatActivity {
                 extras.putString("tel", item.getTel());
                 extras.putDouble("lat",item.getLat());
                 extras.putDouble("lng", item.getLng());
+                extras.putString("article", item.getArticle());
                 Intent pop = new Intent(getApplicationContext(), LocationSearchDetail.class);
                 pop.putExtras(extras);
                 startActivity(pop);
@@ -109,7 +110,7 @@ public class LocationSearchPage extends AppCompatActivity {
     public void sendRequest() {
         // Request를 보낼 queue를 생성한다. 필요시엔 전역으로 생성해 사용하면 된다.
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://ec2-13-125-217-229.ap-northeast-2.compute.amazonaws.com:3000/shop";
+        String url = "http://ec2-54-180-46-45.ap-northeast-2.compute.amazonaws.com:3000/food-bank/center_search";
 
         // StringRequest를 보낸다.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -119,16 +120,17 @@ public class LocationSearchPage extends AppCompatActivity {
                         try {
                             JSONObject jsonObject = new JSONObject(response);
 
-                            JSONArray movieArray = jsonObject.getJSONArray("shop");
+                            JSONArray movieArray = jsonObject.getJSONArray("list");
 
                             for (int i = 0; i < movieArray.length(); i++) {
                                 JSONObject movieObject = movieArray.getJSONObject(i);
 
-                                String s = movieObject.getString("name");
-                                String x = movieObject.getString("addr");
-                                String y = movieObject.getString("tel");
-                                double lat = movieObject.getDouble("y");
-                                double lng = movieObject.getDouble("x");
+                                String s = movieObject.getString("office");
+                                String x = movieObject.getString("detail_office");
+                                String y = movieObject.getString("phone_number");
+                                double lat = Double.parseDouble(movieObject.getString("y"));
+                                double lng = Double.parseDouble(movieObject.getString("x"));
+                                String article = movieObject.getString("donate_article");
 
                                 Location selected_location = new Location("locationA");
                                 selected_location.setLatitude(latitude);
@@ -139,7 +141,7 @@ public class LocationSearchPage extends AppCompatActivity {
 
                                 double distance = selected_location.distanceTo(near_locations) / 1000;
                                 if (distance <= 10) {
-                                    adapter.addItem(new LocationSearchItem(s, x, y,lat,lng));
+                                    adapter.addItem(new LocationSearchItem(s, x, y,lat,lng,article));
                                     adapter.notifyDataSetChanged();
                                 }
                             }

@@ -21,9 +21,10 @@ public class LocationSearchDetail extends AppCompatActivity implements OnMapRead
 
     // 구글 맵 참조변수 생성
     GoogleMap mMap;
-    TextView shop_name_, tel_, addr_;
+    TextView shop_name_, tel_, addr_, article;
     double lat, lng;
     String shop;
+    String do_article;
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -40,6 +41,7 @@ public class LocationSearchDetail extends AppCompatActivity implements OnMapRead
         tel_ = (TextView) findViewById(R.id.tel_);
 
         addr_ = (TextView) findViewById(R.id.addr_);
+        article = (TextView) findViewById(R.id.article);
 
         shop_name_.setText(getIntent().getStringExtra("shop_name"));
         tel_.setText(getIntent().getStringExtra("tel"));
@@ -47,6 +49,8 @@ public class LocationSearchDetail extends AppCompatActivity implements OnMapRead
         shop = getIntent().getStringExtra("shop_name");
         lat = getIntent().getDoubleExtra("lat",0);
         lng = getIntent().getDoubleExtra("lng",0);
+        article.setText(getIntent().getStringExtra("article"));
+
 
         SpannableString content = new SpannableString(getIntent().getStringExtra("tel"));
         content.setSpan(new UnderlineSpan(), 0, getIntent().getStringExtra("tel").length(), 0);

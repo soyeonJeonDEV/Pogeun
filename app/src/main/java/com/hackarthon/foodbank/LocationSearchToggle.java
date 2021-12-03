@@ -31,7 +31,7 @@ import java.util.ArrayList;
 public class LocationSearchToggle extends AppCompatActivity {
 
     TextView bank_name;
-    String[] titles = {"전국", "중앙", "서울", "부산", "대구", "인천", "광주", "대전", "울산", "경기", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주", "세종"};
+    String[] titles = {"지역을 선택하세요", "전국", "중앙", "서울", "부산", "대구", "인천", "광주", "대전", "울산", "경기", "강원", "충북", "충남", "전북", "전남", "경북", "경남", "제주", "세종"};
     ListView locationList;
     LocationSearchAdapter adapter;
     String title;
@@ -56,6 +56,7 @@ public class LocationSearchToggle extends AppCompatActivity {
                 extras.putString("tel", item.getTel());
                 extras.putDouble("lat", item.getLat());
                 extras.putDouble("lng", item.getLng());
+                extras.putString("article", item.getArticle());
                 Intent pop = new Intent(getApplicationContext(), LocationSearchDetail.class);
                 pop.putExtras(extras);
                 startActivity(pop);
@@ -71,12 +72,16 @@ public class LocationSearchToggle extends AppCompatActivity {
         toggle.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                bank_name.setText(titles[position] + " 푸드뱅크 목록");
-                title = titles[position];
+                if(position == 0){
+                    bank_name.setText(titles[position]);
+                }else {
+                    bank_name.setText(titles[position] + " 푸드뱅크 목록");
+                    title = titles[position];
 
-                adapter = new LocationSearchAdapter();
-                Load();
-                locationList.setAdapter(adapter);
+                    adapter = new LocationSearchAdapter();
+                    Load();
+                    locationList.setAdapter(adapter);
+                }
             }
 
             @Override
@@ -103,12 +108,15 @@ public class LocationSearchToggle extends AppCompatActivity {
 
                             JSONObject jsonObject = jsonArray.getJSONObject(i);
 
-                            String s = jsonObject.getString("name");
-                            String x = jsonObject.getString("addr");
-                            String y = jsonObject.getString("tel");
-                            double lat = jsonObject.getDouble("y");
-                            double lng = jsonObject.getDouble("x");
+                            String name = jsonObject.getString("office");
+                            String addr = jsonObject.getString("detail_office");
+                            String tel = jsonObject.getString("phone_number");
+                            String lat = jsonObject.getString("y");
+                            String lng = jsonObject.getString("x");
+                            String article = jsonObject.getString("donate_article");
 
+                            adapter.addItem(new LocationSearchItem(name, addr, tel,Double.parseDouble(lat) ,Double.parseDouble(lng), article));
+                            adapter.notifyDataSetChanged();
 
                         }
                     } else {

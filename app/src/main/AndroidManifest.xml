@@ -51,6 +51,7 @@
         <activity android:name=".CommunityRegister"/>
         <activity android:name=".LocationSearchToggle"/>
         <activity android:name=".LocationSearchMenu"/>
+        <activity android:name=".Loading"/>
     </application>
 
 </manifest>

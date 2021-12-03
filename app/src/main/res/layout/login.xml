@@ -33,7 +33,7 @@
             android:layout_weight="1"
             android:autofillHints="#808080"
             android:background="#d3d3d3"
-            android:hint="EMAIL"
+            android:hint="ID"
             android:inputType="text"
             android:maxLines="1"
             android:singleLine="true"
@@ -58,13 +58,12 @@
             android:id="@+id/loginBtn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="100dp"
-            android:layout_marginRight="100dp"
+
             android:layout_marginBottom="100dp"
             android:layout_weight="1"
-            android:background="#fdc106"
+            android:background="#fef6df"
             android:text="로그인"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="15dp" />
     </LinearLayout>
 

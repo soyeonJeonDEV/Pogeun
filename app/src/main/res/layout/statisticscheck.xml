@@ -22,7 +22,6 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-
         android:layout_margin="10dp">
 
         <TextView
@@ -33,11 +32,12 @@
             android:paddingRight="10dp" />
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:layout_marginBottom="10dp"
             android:textStyle="bold"
+            android:background="#fef6df"
             android:text="기부가 적었던 물품 정보"/>
 
 
@@ -142,12 +142,13 @@
                 </LinearLayout>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:text="기부가 많았던 물품"
+            android:background="#fef6df"
             android:textStyle="bold"/>
 
 
@@ -258,12 +259,13 @@
             android:text="2020년 12월 데이터 기준"
             android:paddingRight="10dp" />
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:layout_marginTop="20dp"
             android:layout_marginBottom="10dp"
             android:textStyle="bold"
+            android:background="#fef6df"
             android:text="이용자가 많았던 센터"/>
 
 
@@ -368,12 +370,13 @@
         </LinearLayout>
 
         <TextView
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:textSize="20dp"
             android:layout_marginBottom="10dp"
             android:layout_marginTop="20dp"
             android:textStyle="bold"
+            android:background="#fef6df"
             android:text="기부자가 많았던 센터"/>
 
 
@@ -459,7 +462,8 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp">
 
             <TextView
                 android:layout_width="wrap_content"
@@ -473,7 +477,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="5dp"
                 android:textSize="20dp"
-                android:text="강동구 푸드뱅크마켓센터"/>
+                android:text="강동구 푸드뱅크마켓센터" />
 
         </LinearLayout>
 

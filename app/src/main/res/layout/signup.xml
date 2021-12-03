@@ -54,13 +54,12 @@
             android:id="@+id/signupBtn"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_marginLeft="100dp"
-            android:layout_marginRight="100dp"
+
             android:layout_marginBottom="100dp"
             android:layout_weight="1"
-            android:background="#fdc106"
+            android:background="#fef6df"
             android:text="회원가입"
-            android:textColor="@color/white"
+            android:textColor="@color/black"
             android:textSize="15dp" />
     </LinearLayout>
 

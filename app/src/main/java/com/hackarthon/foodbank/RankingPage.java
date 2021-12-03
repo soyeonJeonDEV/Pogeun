@@ -60,10 +60,10 @@ public class RankingPage extends AppCompatActivity {
 
                                 if(rank == 1){
                                     r1_name .setText(name);
-                                    r1_donation .setText(donation);
+                                    r1_donation .setText(donation + "원");
                                 }else if (rank == 2){
                                     r2_name.setText(name);
-                                    r2_donation.setText(donation);
+                                    r2_donation.setText(donation + "원");
                                 }
 
 

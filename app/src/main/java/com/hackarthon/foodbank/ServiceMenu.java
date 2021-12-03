@@ -30,7 +30,7 @@ public class ServiceMenu extends AppCompatActivity {
         locationBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent locate = new Intent(getApplicationContext(), LocationSearchPage.class);
+                Intent locate = new Intent(getApplicationContext(), LocationSearchMenu.class);
                 startActivity(locate);
             }
         });

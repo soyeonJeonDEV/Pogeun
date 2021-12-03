@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class LoginRequest extends StringRequest {
 
-    final static private String URL = "http://ec2-13-125-217-229.ap-northeast-2.compute.amazonaws.com:3000/user/login"; // "http:// 퍼블릭 DSN 주소/Login.php";
+    final static private String URL = "http://ec2-54-180-46-45.ap-northeast-2.compute.amazonaws.com:3000/user/login"; // "http:// 퍼블릭 DSN 주소/Login.php";
     private Map<String, String> parameters;
 
     public LoginRequest(String user_id, String password, Response.Listener<String> listener) {

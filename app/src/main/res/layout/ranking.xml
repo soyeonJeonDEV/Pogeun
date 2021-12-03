@@ -78,34 +78,34 @@
             android:text="1,111,111원"/>
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_margin="10dp">
+<!--    <LinearLayout-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_margin="10dp">-->
 
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:layout_marginRight="10dp"
-            android:text="3위"/>
+<!--        <TextView-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="20dp"-->
+<!--            android:layout_marginRight="10dp"-->
+<!--            android:text="3위"/>-->
 
-        <TextView
-            android:id="@+id/r3_name"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:layout_marginRight="10dp"
-            android:text="이*훈"/>
-        <TextView
-            android:id="@+id/r3_donation"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:textSize="20dp"
-            android:layout_marginRight="10dp"
-            android:text="970,300원"/>
+<!--        <TextView-->
+<!--            android:id="@+id/r3_name"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="20dp"-->
+<!--            android:layout_marginRight="10dp"-->
+<!--            android:text="이*훈"/>-->
+<!--        <TextView-->
+<!--            android:id="@+id/r3_donation"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:textSize="20dp"-->
+<!--            android:layout_marginRight="10dp"-->
+<!--            android:text="970,300원"/>-->
 
-    </LinearLayout>
+<!--    </LinearLayout>-->
     </LinearLayout>
 
 </LinearLayout>

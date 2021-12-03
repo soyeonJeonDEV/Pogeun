@@ -102,7 +102,7 @@ public class CommunityPage extends AppCompatActivity {
     public void sendRequest() {
         // Request를 보낼 queue를 생성한다. 필요시엔 전역으로 생성해 사용하면 된다.
         RequestQueue queue = Volley.newRequestQueue(this);
-        String url = "http://ec2-13-125-217-229.ap-northeast-2.compute.amazonaws.com:3000/community/list";//url
+        String url = "http://ec2-54-180-46-45.ap-northeast-2.compute.amazonaws.com:3000/community/community_list";//url
 
         // StringRequest를 보낸다.
         StringRequest stringRequest = new StringRequest(Request.Method.GET, url,
@@ -113,14 +113,14 @@ public class CommunityPage extends AppCompatActivity {
                             JSONObject jsonObject = new JSONObject(response);
 
                             //GET통신으로 받아옴
-                            JSONArray movieArray = jsonObject.getJSONArray("result"); // table 이름
+                            JSONArray movieArray = jsonObject.getJSONArray("list"); // table 이름
 
                             for (int i = 0; i < movieArray.length(); i++) {
                                 JSONObject movieObject = movieArray.getJSONObject(i);
 
                                 user_id = movieObject.getString("user_id");//컬럼명
                                 content = movieObject.getString("text");
-                                seq_id = movieObject.getInt("community_id");
+                                seq_id = movieObject.getInt("id");
 
 
                                 adapter.addItem(new CommunityItem(user_id,content,seq_id));

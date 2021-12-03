@@ -10,7 +10,7 @@ import java.util.Map;
 public class CommunityCommentRegister extends StringRequest {
 
     // 서버 url 설정 (php 파일 연동)
-    final static private String URL = "http://ec2-13-125-217-229.ap-northeast-2.compute.amazonaws.com:3000/community/comment"; // "http:// 퍼블릭 DNS 주소/Register.php"
+    final static private String URL = "http://ec2-54-180-46-45.ap-northeast-2.compute.amazonaws.com:3000/community/comment_create"; // "http:// 퍼블릭 DNS 주소/Register.php"
     private Map<String, String> parameters;
 
 
@@ -20,7 +20,7 @@ public class CommunityCommentRegister extends StringRequest {
         parameters = new HashMap<>();
         parameters.put("community_id", community_id);
         parameters.put("user_id", userid);
-        parameters.put("comm", content);
+        parameters.put("text", content);
 
     }
 

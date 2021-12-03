@@ -5,7 +5,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mapLayout"
     android:gravity="center"
+    android:layout_margin="10dp"
     android:orientation="vertical">
+
+    <TextView
+        android:textSize="40dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="나의 포근 이력"
+        android:layout_margin="10dp"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/record_id"
+        android:textSize="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="user_id님의 기부 이력입니다."
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/record_count"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:text="총 기부 금액 : "
+        android:textSize="20dp"
+        android:gravity="center"/>
+
+    <ListView
+        android:id="@+id/recod_list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+
 
 
 </LinearLayout>

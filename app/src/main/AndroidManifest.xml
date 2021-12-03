@@ -49,6 +49,8 @@
         <activity android:name=".RankingPage"/>
         <activity android:name=".CommunityDetail"/>
         <activity android:name=".CommunityRegister"/>
+        <activity android:name=".LocationSearchToggle"/>
+        <activity android:name=".LocationSearchMenu"/>
     </application>
 
 </manifest>

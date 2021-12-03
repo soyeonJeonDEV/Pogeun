@@ -9,7 +9,7 @@ import java.util.Map;
 
 public class CommunityCommentListRegister extends StringRequest {
 
-    final static private String URL = "http://ec2-13-125-217-229.ap-northeast-2.compute.amazonaws.com:3000/community/comment_list"; // "http:// 퍼블릭 DSN 주소/Login.php";
+    final static private String URL = "http://ec2-54-180-46-45.ap-northeast-2.compute.amazonaws.com:3000/community/comment_list"; // "http:// 퍼블릭 DSN 주소/Login.php";
     private Map<String,String> parameters;
 
     public CommunityCommentListRegister(String seq_id,  Response.Listener<String> listener) {

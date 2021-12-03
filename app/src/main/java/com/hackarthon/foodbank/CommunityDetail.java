@@ -133,7 +133,7 @@ public class CommunityDetail extends AppCompatActivity {
                         comment_layout.removeAllViews();
 
 
-                        JSONArray jsonArray = jsonResponse.getJSONArray("result");
+                        JSONArray jsonArray = jsonResponse.getJSONArray("list");
 
 
 // custom_comment 를 불러오기 위한 객체
@@ -146,7 +146,7 @@ public class CommunityDetail extends AppCompatActivity {
                             JSONObject jsonObject = jsonArray.getJSONObject(i);
 
                             userid = jsonObject.optString("user_id");
-                            comm = jsonObject.optString("comm");
+                            comm = jsonObject.optString("text");
 
                             ((TextView) customView.findViewById(R.id.cmt_userid_tv)).setText(userid);
                             ((TextView) customView.findViewById(R.id.cmt_content_tv)).setText(comm);
@@ -166,7 +166,7 @@ public class CommunityDetail extends AppCompatActivity {
             }
         };
 
-        //LoginRequest.java 에서 url 연결
+        //CommunityCommentListRegister.java 에서 url 연결
         CommunityCommentListRegister communityCommentListRegister = new CommunityCommentListRegister(String.valueOf(seq_id), responseListener);
         RequestQueue queue = Volley.newRequestQueue(CommunityDetail.this);
         queue.add(communityCommentListRegister);

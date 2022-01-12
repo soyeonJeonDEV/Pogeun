@@ -20,4 +20,3 @@
 ### Tech stack
 Fronted : Java 
 
-Beckend : TypeScript
